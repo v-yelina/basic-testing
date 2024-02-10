@@ -27,7 +27,7 @@ describe('doStuffByTimeout', () => {
   test('should set timeout with provided callback and timeout', () => {
     jest.spyOn(global, 'setTimeout');
     const funcToCall = jest.fn();
-    doStuffByTimeout(funcToCall, 2000)
+    doStuffByTimeout(funcToCall, 2000);
     expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(setTimeout).toHaveBeenLastCalledWith(funcToCall, 2000);
   });
@@ -54,7 +54,7 @@ describe('doStuffByInterval', () => {
   test('should set interval with provided callback and timeout', () => {
     jest.spyOn(global, 'setInterval');
     const funcToCall = jest.fn();
-    doStuffByInterval(funcToCall, 2000)
+    doStuffByInterval(funcToCall, 2000);
     expect(setInterval).toHaveBeenCalledTimes(1);
     expect(setInterval).toHaveBeenLastCalledWith(funcToCall, 2000);
   });

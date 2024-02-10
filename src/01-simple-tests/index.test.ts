@@ -23,7 +23,11 @@ describe('simpleCalculator tests', () => {
   });
 
   test('should exponentiate two numbers', () => {
-    const result = simpleCalculator({ a: 10, b: 2, action: Action.Exponentiate });
+    const result = simpleCalculator({
+      a: 10,
+      b: 2,
+      action: Action.Exponentiate,
+    });
     expect(result).toBe(100);
   });
 
@@ -34,7 +38,9 @@ describe('simpleCalculator tests', () => {
 
   test('should return null for invalid arguments', () => {
     expect(simpleCalculator({ a: 'a', b: 2, action: Action.Add })).toBeNull;
-    expect(simpleCalculator({ a: 2, b: 'b', action: Action.Subtract })).toBeNull;
-    expect(simpleCalculator({ a: 's', b: 'b', action: Action.Divide })).toBeNull;
+    expect(simpleCalculator({ a: 2, b: 'b', action: Action.Subtract }))
+      .toBeNull;
+    expect(simpleCalculator({ a: 's', b: 'b', action: Action.Divide }))
+      .toBeNull;
   });
 });

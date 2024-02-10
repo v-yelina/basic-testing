@@ -1,5 +1,10 @@
-import { BankAccount, getBankAccount, InsufficientFundsError, SynchronizationFailedError, TransferFailedError } from '.';
-import _ from 'lodash';
+import {
+  BankAccount,
+  getBankAccount,
+  InsufficientFundsError,
+  SynchronizationFailedError,
+  TransferFailedError,
+} from '.';
 
 describe('BankAccount', () => {
   afterEach(() => {
@@ -16,15 +21,19 @@ describe('BankAccount', () => {
   });
 
   test('should throw InsufficientFundsError error when withdrawing more than balance', () => {
-    expect(() => account.withdraw(200)).toThrowError(InsufficientFundsError)
+    expect(() => account.withdraw(200)).toThrowError(InsufficientFundsError);
   });
 
   test('should throw error when transferring more than balance', () => {
-    expect(() => account.transfer(200, anotherAccount)).toThrowError(InsufficientFundsError);
+    expect(() => account.transfer(200, anotherAccount)).toThrowError(
+      InsufficientFundsError,
+    );
   });
 
   test('should throw error when transferring to the same account', () => {
-    expect(() => account.transfer(200, account)).toThrowError(TransferFailedError);
+    expect(() => account.transfer(200, account)).toThrowError(
+      TransferFailedError,
+    );
   });
 
   test('should deposit money', () => {
@@ -59,6 +68,8 @@ describe('BankAccount', () => {
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     jest.spyOn(account, 'fetchBalance').mockResolvedValueOnce(null);
 
-    await expect(account.synchronizeBalance()).rejects.toThrow(SynchronizationFailedError);
+    await expect(account.synchronizeBalance()).rejects.toThrow(
+      SynchronizationFailedError,
+    );
   });
 });

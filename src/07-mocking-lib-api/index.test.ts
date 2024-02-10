@@ -3,7 +3,6 @@ import { throttledGetDataFromApi } from './index';
 
 jest.mock('axios');
 
-
 describe('throttledGetDataFromApi', () => {
   afterEach(() => {
     jest.clearAllMocks();

@@ -16,11 +16,14 @@ const testCases = [
   { a: '5', b: 1, action: Action.Subtract, expected: null },
   { a: '5', b: '1', action: Action.Subtract, expected: null },
   { a: 5, b: ' 1', action: Action.Subtract, expected: null },
-  { a: 5, b: 1, action: 'Action.Subtract', expected: null }
+  { a: 5, b: 1, action: 'Action.Subtract', expected: null },
 ];
 
 describe('simpleCalculator', () => {
-  test.each(testCases)(`Calculate $a $action $b`, ({ a, b, action, expected }) => {
-    expect(simpleCalculator({ a, b, action })).toBe(expected);
-  })
+  test.each(testCases)(
+    `Calculate $a $action $b`,
+    ({ a, b, action, expected }) => {
+      expect(simpleCalculator({ a, b, action })).toBe(expected);
+    },
+  );
 });
